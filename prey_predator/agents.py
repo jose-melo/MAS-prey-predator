@@ -1,4 +1,6 @@
+from typing import Tuple
 from mesa import Agent
+from prey_predator.model import WolfSheep
 from prey_predator.random_walk import RandomWalker
 
 
@@ -11,11 +13,18 @@ class Sheep(RandomWalker):
 
     energy = None
 
-    def __init__(self, unique_id, pos, model, moore, energy=None):
+    def __init__(self, unique_id: int, pos: Tuple[int, int], model: WolfSheep, moore: bool, energy=None):
         super().__init__(unique_id, pos, model, moore=moore)
         self.energy = energy
 
-    def step(self):
+    @classmethod
+    def eat_grass(self, energy_from_food) -> None:
+        """
+            Sheep eats the grass and gain energy from it
+        """
+        self.energy += energy_from_food
+
+    def step(self) -> None:
         """
         A model step. Move, then eat grass and reproduce.
         """
@@ -24,8 +33,15 @@ class Sheep(RandomWalker):
         cellmates = self.model.grid.get_cell_list_contents([self.pos])
         print(cellmates)
         for neighbor in cellmates:
-            if type(neighbor) == GrassPatch:
+            if type(neighbor) == GrassPatch and neighbor.state == GrassData.FullyGrown:
                 neighbor.get_eaten()
+                self.eat_grass()
+    
+    @classmethod
+    def reproduce(self, sheep_reproduce) -> None: 
+        if self.random.choices([0, 1], weights=[1-self.sheep_reproduce, self.sheep_reproduce], k=1):
+            pass
+            
 
 
 
@@ -43,9 +59,15 @@ class Wolf(RandomWalker):
 
     def step(self):
         self.random_move()
-        # ... to be completedpass
+        # reproduce :
+        if self.model.random.random()>self.model.wolf_reproduce:
+            self.model.create_new_wolf()
+        # eat :
         cellmates = self.model.grid.get_cell_list_contents([self.pos])
-        print(cellmates)
+        for mate in cellmates:
+            if isinstance(mate, Sheep):
+                self.energy+=self.model.wolf_gain_from_food
+                #TODO : supprimer le mouton
 
 
 class GrassData:
