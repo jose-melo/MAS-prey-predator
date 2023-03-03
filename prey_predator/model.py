@@ -9,6 +9,7 @@ Replication of the model found in NetLogo:
     Northwestern University, Evanston, IL.
 """
 
+from typing import Tuple
 from mesa import Model
 from mesa.space import MultiGrid
 from mesa.datacollection import DataCollector
@@ -90,36 +91,51 @@ class WolfSheep(Model):
             }
         )
 
-        sheep_moore = False
+        self.sheep_moore = False
+        self.sheep_initial_energy = 1
         # Create sheep:
-        # ... to be completed
         for i in range(self.initial_sheep):
             x = self.random.randrange(self.grid.width)
             y = self.random.randrange(self.grid.height)
+            self.create_sheep((x,y),self.sheep_moore,energy=1)
 
-            new_sheep = Sheep(i, (x, y), self, sheep_moore, 1)
-            self.schedule.add(new_sheep)
-            self.grid.place_agent(new_sheep, (x, y))
-
-        wolf_moore = False
+        self.wolf_moore = False
+        self.wolf_initial_energy = 1
         # Create wolves
-        # ... to be completed
         for i in range(self.initial_wolves):
             x = self.random.randrange(self.grid.width)
             y = self.random.randrange(self.grid.height)
+            self.create_wolf((x,y),self.wolf_moore,energy=1)
 
-            new_wolf = Wolf(i, (x, y), self, wolf_moore, 1)
-            self.schedule.add(new_wolf)
-            self.grid.place_agent(new_wolf, (x, y))
-
-        grass_moore = False
         # Create grass patches
-        # ... to be completed
         for i in range(width):
             for j in range(height):
-                new_grass = GrassPatch(i+height*j, (i, j), self, grass_moore, 1)
-                self.schedule.add(new_grass)
-                self.grid.place_agent(new_grass, (i, j))
+                self.create_grass((i, j))
+   
+    def create_grass(self, pos: Tuple[int, int]): 
+        """Create a GrassPatch in the specified position
+
+        Args:
+            pos Tuple[int, int]: (x, y) position of the grass in the Grid
+        """
+        (i, j) = pos
+        new_grass = GrassPatch(self.next_id, (i, j), self, True)
+        self.schedule.add(new_grass)
+        self.grid.place_agent(new_grass, (i, j))
+
+    def create_sheep(self, pos: Tuple[int, int], moore: bool, energy: int):
+        new_sheep = Sheep(self.next_id, pos, self, moore, energy)
+        self.schedule.add(new_sheep)
+        self.grid.place_agent(new_sheep, pos)
+
+    def create_wolf(self, pos: Tuple[int, int], moore: bool, energy: int):
+        new_wolf = Wolf(self.next_id, pos, self, moore, energy)
+        self.schedule.add(new_wolf)
+        self.grid.place_agent(new_wolf, pos)
+
+    def kill_animal(self,animal):
+        self.grid.remove_agent(animal)
+        self.schedule.remove(animal)
 
     def step(self):
         self.schedule.step()
@@ -130,7 +146,18 @@ class WolfSheep(Model):
         # ... to be completed
 
     def run_model(self, step_count=200):
-        # ... to be completed
         for i in range(200):
             self.step()
 
+    def event_sheep_eats_grass(self, sheep: Sheep, grass: GrassPatch):
+        grass.get_eaten()
+        sheep.eat_grass()
+    
+    def event_reproduces(self, animal):
+        if type(animal) == Sheep:
+            if self.random.random()>self.sheep_reproduce:
+                self.create_sheep(animal.pos, self.sheep_moore, self.sheep_initial_energy)
+        if type(animal) == Wolf:
+            if self.random.random()>self.wolf_reproduce:
+                self.create_wolf(animal.pos, self.wolf_moore, self.wolf_initial_energy)
+            
