@@ -9,32 +9,45 @@ from prey_predator.model import WolfSheep
 def wolf_sheep_portrayal(agent):
     if agent is None:
         return
+    
+    if agent.pos is None:
+        return
 
     portrayal = {}
 
     if type(agent) is Sheep:
         # ... to be completed
-        portrayal = {"Shape": "circle",
-                "Color": "red",
+        portrayal = {
+                "Shape": "circle",
+                "Color": "blue",
                 "Filled": "true",
-                "Layer": 0,
+                "Layer": 1,
                 "r": 0.5}
 
     elif type(agent) is Wolf:
         # ... to be completed
         portrayal = {"Shape": "circle",
-                "Color": "blue",
+                "Color": "red",
                 "Filled": "true",
-                "Layer": 0,
-                "r": 0.5}
+                "Layer": 1,
+                "r": 0.7}
 
     elif type(agent) is GrassPatch:
         # ... to be completed
-        portrayal = {"Shape": "circle",
-                "Color": "green",
-                "Filled": "true",
-                "Layer": 0,
-                "r": 0.5}
+        if agent.fully_grown:
+            portrayal = {"Shape": "rect",
+                    "Color": "green",
+                    "Filled": "true",
+                    "Layer": 0,
+                    "w": 1,
+                    "h": 1 }
+        else:
+            portrayal = {"Shape": "rect",
+                    "Color": "gray",
+                    "Filled": "false",
+                    "Layer": 0,
+                    "w": 1,
+                    "h": 1 }
 
     return portrayal
 
@@ -46,6 +59,16 @@ chart_element = ChartModule(
 
 model_params = {
     # ... to be completed
+    "width": 20,
+    "initial_sheep": 20,
+    "initial_wolves": 50,
+    "sheep_reproduce": 0.04,
+    "wolf_reproduce": 0.04,
+    "wolf_gain_from_food": 15,
+    "grass": True,
+    "grass_regrowth_time": 30,
+    "sheep_gain_from_food": 5,
+    "aging_effect": True
 }
 
 server = ModularServer(
