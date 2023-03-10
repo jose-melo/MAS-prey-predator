@@ -1,1 +1,0 @@
-{'density_sheep': 0.49196193798415194, 'density_wolves': 0.012081388596570375, 'sheep_reproduce': 0.17273287988020025, 'wolf_reproduce': 0.0016242817257920076, 'sheep_gain_from_food': 3, 'grass_regrowth_time': 13}
