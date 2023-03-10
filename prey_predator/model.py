@@ -16,6 +16,7 @@ from mesa.datacollection import DataCollector
 
 from prey_predator.agents import Sheep, Wolf, GrassPatch
 from prey_predator.schedule import RandomActivationByBreed
+from scipy.signal import find_peaks 
 
 
 class WolfSheep(Model):
@@ -46,8 +47,8 @@ class WolfSheep(Model):
         self,
         height: int = 20,
         width: int = 20,
-        initial_sheep:int = 100,
-        initial_wolves:int = 50,
+        density_sheep:float = 0.5,
+        density_wolves:float = 0.5,
         sheep_reproduce:float = 0.04,
         wolf_reproduce:float = 0.05,
         wolf_gain_from_food: int = 20,
@@ -55,6 +56,11 @@ class WolfSheep(Model):
         grass_regrowth_time: int = 30,
         sheep_gain_from_food: int = 4,
         aging_effect:bool = False,
+        death_age_wolf:int = 15,
+        death_age_sheep:int = 15,
+        sheep_energy_decay: float = 1,
+        wolf_energy_decay: float = 1,
+        moore: bool = False,
     ):
         """
         Create a new Wolf-Sheep model with the given parameters.
@@ -75,8 +81,8 @@ class WolfSheep(Model):
         # Set parameters
         self.height = height
         self.width = width
-        self.initial_sheep = initial_sheep
-        self.initial_wolves = initial_wolves
+        self.initial_sheep = int(width * height * density_sheep)
+        self.initial_wolves = int(width * height * density_wolves)
         self.sheep_reproduce = sheep_reproduce
         self.wolf_reproduce = wolf_reproduce
         self.wolf_gain_from_food = wolf_gain_from_food
@@ -84,31 +90,45 @@ class WolfSheep(Model):
         self.grass_regrowth_time = grass_regrowth_time
         self.sheep_gain_from_food = sheep_gain_from_food
         self.aging_effect = aging_effect
+        self.moore = moore
 
         self.schedule = RandomActivationByBreed(self)
         self.grid = MultiGrid(self.height, self.width, torus=True)
         self.datacollector = DataCollector(
+            model_reporters=
             {
                 "Wolves": lambda m: m.schedule.get_breed_count(Wolf),
                 "Sheep": lambda m: m.schedule.get_breed_count(Sheep),
+            },
+            tables={
+                "Count": ["Wolves", "Sheep"],
             }
         )
 
-        self.sheep_moore = False
         self.sheep_initial_energy = sheep_gain_from_food
         # Create sheep:
         for i in range(self.initial_sheep):
             x = self.random.randrange(self.grid.width)
             y = self.random.randrange(self.grid.height)
-            self.create_sheep((x,y),self.sheep_moore,energy=1, aging_effect=aging_effect)
+            self.create_sheep(pos = (x,y),
+                              moore = self.moore,
+                              energy = 1, 
+                              aging_effect = aging_effect,
+                              death_age = death_age_sheep,
+                              energy_decay=sheep_energy_decay
+                              )
 
-        self.wolf_moore = False
         self.wolf_initial_energy = wolf_gain_from_food
         # Create wolves
         for i in range(self.initial_wolves):
             x = self.random.randrange(self.grid.width)
             y = self.random.randrange(self.grid.height)
-            self.create_wolf((x,y),self.wolf_moore,energy=1, aging_effect=aging_effect)
+            self.create_wolf(pos = (x,y),
+                             moore = self.moore,
+                             energy=1, 
+                             aging_effect=aging_effect,  
+                             death_age=death_age_wolf,
+                             energy_decay=wolf_energy_decay )
 
         # Create grass patches
         for i in range(width):
@@ -126,13 +146,13 @@ class WolfSheep(Model):
         self.schedule.add(new_grass)
         self.grid.place_agent(new_grass, (i, j))
 
-    def create_sheep(self, pos: Tuple[int, int], moore: bool, energy: int, aging_effect: bool):
-        new_sheep = Sheep(self.next_id(), pos, self, moore, energy, aging_effect)
+    def create_sheep(self, pos: Tuple[int, int], moore: bool, energy: int, aging_effect: bool, death_age: int, energy_decay: float):
+        new_sheep = Sheep(self.next_id(), pos, self, moore, energy, aging_effect, death_age, energy_decay_rate=energy_decay)
         self.schedule.add(new_sheep)
         self.grid.place_agent(new_sheep, pos)
 
-    def create_wolf(self, pos: Tuple[int, int], moore: bool, energy: int, aging_effect: bool):
-        new_wolf = Wolf(self.next_id(), pos, self, moore, energy, aging_effect)
+    def create_wolf(self, pos: Tuple[int, int], moore: bool, energy: int, aging_effect: bool, death_age: int, energy_decay: float):
+        new_wolf = Wolf(self.next_id(), pos, self, moore, energy, aging_effect, death_age, energy_decay_rate=energy_decay)
         self.schedule.add(new_wolf)
         self.grid.place_agent(new_wolf, pos)
 
@@ -144,37 +164,85 @@ class WolfSheep(Model):
 
         # Collect data
         self.datacollector.collect(self)
+        
 
         # ... to be completed
         self.schedule.step()
+    
+    def eval_step(self) -> int:
+        self.step()
 
-    def run_model(self, step_count=200):
+        df = self.datacollector.get_model_vars_dataframe()
+        #print(df["Wolves"].iloc[-1], df["Sheep"].iloc[-1])
+
+        #if df["Wolves"].iloc[-1]/df["Sheep"].iloc[-1] >= 1000 or df["Sheep"].iloc[-1]/df["Wolves"].iloc[-1] >= 1000 :
+            #return -1
+
+        if df['Wolves'].iloc[-1] == 0 or df["Sheep"].iloc[-1] == 0:
+            return -1
+        
+        num_maxima_sheep = find_peaks(df['Sheep'][-100:])[0].shape[0]
+        num_maxima_wolf = find_peaks(df['Sheep'][-100:])[0].shape[0]
+    
+        return num_maxima_wolf  + num_maxima_sheep
+        
+
+    def run_model(self, step_count=200) -> None:
         for _ in range(step_count):
             self.step()
 
-    def event_sheep_eats_grass(self, sheep: Sheep, grass: GrassPatch):
+    def event_sheep_eats_grass(self, sheep: Sheep, grass: GrassPatch) -> None:
         if self.grass:
             grass.get_eaten()
             sheep.eat_grass(self.sheep_gain_from_food)
+        else:
+            sheep.eat_grass(1)
     
-    def event_reproduces(self, animal):
-        if type(animal) == Sheep:
+    def event_reproduces(self, animal: Union[Sheep, Wolf]) -> None:
+        # Here we try to "conserve" the energy
+        # Otherwise sheeps could live forever given sufficient reproduction rate
+
+        child_energy = animal.energy//2
+
+        if isinstance(animal, Sheep):
             if self.random.random()<=self.sheep_reproduce:
-                self.create_sheep(animal.pos, self.sheep_moore, self.sheep_initial_energy, self.aging_effect)
-        if type(animal) == Wolf:
+                self.create_sheep(pos = animal.pos,
+                                  moore = self.moore,
+                                  energy = child_energy,
+                                  aging_effect = self.aging_effect,
+                                  death_age = animal.death_age,
+                                  energy_decay=animal.energy_decay_rate)
+
+        if isinstance(animal, Wolf):
             if self.random.random()<=self.wolf_reproduce:
-                self.create_wolf(animal.pos, self.wolf_moore, self.wolf_initial_energy, self.aging_effect)
-            
-    def event_wolf_eats_sheep(self, wolf: Wolf, sheep: Sheep):
+                self.create_wolf(pos = animal.pos,
+                                 moore = self.moore,
+                                 energy = child_energy,
+                                 aging_effect = self.aging_effect,
+                                 death_age = animal.death_age,
+                                 energy_decay=animal.energy_decay_rate)
+
+    def event_wolf_eats_sheep(self, wolf: Wolf, sheep: Sheep) -> None:
+        """Wolf eats sheep and gets energy from it"""
         wolf.eat_sheep(self.wolf_gain_from_food)
         self.kill_animal(sheep)
     
-    def verify_survivalness(self, animal: Union[Sheep, Wolf]):
-        if animal.aging_effect:
-            if animal.age == animal.death_age:
-                self.kill_animal(animal)
-        
+    def verify_survivalness(self, animal: Union[Sheep, Wolf], energy_decay_rate: float = 1) -> None:
+        """ Verify if animal is still alive
+
+        Args:
+            animal (Union[Sheep, Wolf]): Animal to verify 
+            energy_decay_rate (float, optional). Defaults to 1.
+        """
         if animal.energy == 0:
             self.kill_animal(animal)
-        animal.energy -= 1
+            return
+
+        if animal.aging_effect:
+            animal.age += 1
+            if animal.age == animal.death_age:
+                self.kill_animal(animal)
+                return 
+        
+        animal.energy -= energy_decay_rate
             

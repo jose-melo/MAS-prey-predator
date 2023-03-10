@@ -11,14 +11,21 @@ class Sheep(RandomWalker):
     """
 
     energy = None
-    death_age = 15
 
-    def __init__(self, unique_id: int, pos: Tuple[int, int], model: Model, moore: bool, energy=None, aging_effect=False):
+    def __init__(self, 
+                 unique_id: int,
+                 pos: Tuple[int, int],
+                 model: Model, moore: bool,
+                 energy:int = None,
+                 aging_effect: bool = False,
+                 death_age:int = 15, 
+                 energy_decay_rate:float = 1):
         super().__init__(unique_id, pos, model, moore=moore)
         self.energy = energy
         self.age = 0
         self.aging_effect = aging_effect
-
+        self.death_age = death_age
+        self.energy_decay_rate = energy_decay_rate
 
     def eat_grass(self, energy_from_food) -> None:
         """
@@ -36,14 +43,15 @@ class Sheep(RandomWalker):
         # eat :
         cellmates = self.model.grid.get_cell_list_contents([self.pos])
         for neighbor in cellmates:
-            if type(neighbor) == GrassPatch and neighbor.fully_grown:
+            if isinstance(neighbor, GrassPatch) and neighbor.fully_grown:
                 self.model.event_sheep_eats_grass(self, neighbor)
+                break
      
         # reproduces :
         self.model.event_reproduces(self)
 
         # Check energy, if zero --> die
-        self.model.verify_survivalness(self)
+        self.model.verify_survivalness(self, self.energy_decay_rate)
 
             
 class Wolf(RandomWalker):
@@ -52,13 +60,22 @@ class Wolf(RandomWalker):
     """
 
     energy = None
-    death_age = 15
 
-    def __init__(self, unique_id: int, pos: Tuple[int, int], model: Model, moore: bool, energy:bool = None, aging_effect:bool = False):
+    def __init__(self,
+                 unique_id: int,
+                 pos: Tuple[int, int],
+                 model: Model,
+                 moore: bool,
+                 energy:bool = None, 
+                 aging_effect:bool = False, 
+                 death_age:int = 15,
+                 energy_decay_rate: float = 1):
         super().__init__(unique_id, pos, model, moore=moore)
         self.energy = energy
         self.aging_effect = aging_effect
         self.age = 0
+        self.death_age = death_age
+        self.energy_decay_rate = energy_decay_rate
 
     def eat_sheep(self, energy_from_sheep: int): 
         """Wolf eats a sheep and gain energy from it
@@ -84,7 +101,7 @@ class Wolf(RandomWalker):
                 self.model.event_wolf_eats_sheep(self, mate)
     
         # Check energy, if zero --> die
-        self.model.verify_survivalness(self)
+        self.model.verify_survivalness(self, self.energy_decay_rate)
 
 class GrassPatch(Agent):
     """
@@ -105,19 +122,21 @@ class GrassPatch(Agent):
         self.time_to_grow = countdown
         self.pos = pos
         self.countdown = countdown
-    
-    def get_eaten(self):
+
+    def get_eaten(self) -> None:
+        """Function to be called when the grass is eaten by a sheep
+        """
         # reset variables
         self.age = 0
         self.fully_grown = False
 
     def step(self):
+        """Function to be called at each step of the model
+        """
         # age
-        if not self.fully_grown: 
+        if not self.fully_grown:
             self.age += 1
 
         # Check if is fully grown
         if self.age >= self.countdown:
             self.fully_grown=True
-            
-
