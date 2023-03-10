@@ -60,6 +60,7 @@ class WolfSheep(Model):
         death_age_sheep:int = 15,
         sheep_energy_decay: float = 1,
         wolf_energy_decay: float = 1,
+        moore: bool = False,
     ):
         """
         Create a new Wolf-Sheep model with the given parameters.
@@ -89,6 +90,7 @@ class WolfSheep(Model):
         self.grass_regrowth_time = grass_regrowth_time
         self.sheep_gain_from_food = sheep_gain_from_food
         self.aging_effect = aging_effect
+        self.moore = moore
 
         self.schedule = RandomActivationByBreed(self)
         self.grid = MultiGrid(self.height, self.width, torus=True)
@@ -103,28 +105,26 @@ class WolfSheep(Model):
             }
         )
 
-        self.sheep_moore = False
         self.sheep_initial_energy = sheep_gain_from_food
         # Create sheep:
         for i in range(self.initial_sheep):
             x = self.random.randrange(self.grid.width)
             y = self.random.randrange(self.grid.height)
             self.create_sheep(pos = (x,y),
-                              moore = self.sheep_moore,
+                              moore = self.moore,
                               energy = 1, 
                               aging_effect = aging_effect,
                               death_age = death_age_sheep,
                               energy_decay=sheep_energy_decay
                               )
 
-        self.wolf_moore = False
         self.wolf_initial_energy = wolf_gain_from_food
         # Create wolves
         for i in range(self.initial_wolves):
             x = self.random.randrange(self.grid.width)
             y = self.random.randrange(self.grid.height)
             self.create_wolf(pos = (x,y),
-                             moore = self.wolf_moore,
+                             moore = self.moore,
                              energy=1, 
                              aging_effect=aging_effect,  
                              death_age=death_age_wolf,
@@ -181,9 +181,10 @@ class WolfSheep(Model):
         if df['Wolves'].iloc[-1] == 0 or df["Sheep"].iloc[-1] == 0:
             return -1
         
-        num_maxima = find_peaks(df['Sheep'])[0].shape[0]
+        num_maxima_sheep = find_peaks(df['Sheep'][-100:])[0].shape[0]
+        num_maxima_wolf = find_peaks(df['Sheep'][-100:])[0].shape[0]
     
-        return num_maxima 
+        return num_maxima_wolf  + num_maxima_sheep
         
 
     def run_model(self, step_count=200) -> None:
@@ -206,7 +207,7 @@ class WolfSheep(Model):
         if isinstance(animal, Sheep):
             if self.random.random()<=self.sheep_reproduce:
                 self.create_sheep(pos = animal.pos,
-                                  moore = self.sheep_moore,
+                                  moore = self.moore,
                                   energy = child_energy,
                                   aging_effect = self.aging_effect,
                                   death_age = animal.death_age,
@@ -215,7 +216,7 @@ class WolfSheep(Model):
         if isinstance(animal, Wolf):
             if self.random.random()<=self.wolf_reproduce:
                 self.create_wolf(pos = animal.pos,
-                                 moore = self.wolf_moore,
+                                 moore = self.moore,
                                  energy = child_energy,
                                  aging_effect = self.aging_effect,
                                  death_age = animal.death_age,

@@ -45,6 +45,7 @@ class Sheep(RandomWalker):
         for neighbor in cellmates:
             if isinstance(neighbor, GrassPatch) and neighbor.fully_grown:
                 self.model.event_sheep_eats_grass(self, neighbor)
+                break
      
         # reproduces :
         self.model.event_reproduces(self)

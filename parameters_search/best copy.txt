@@ -1,1 +1,152 @@
-{"width": 80, "height": 80, "grass": true, "density_sheep": 0.061322476160929895, "density_wolves": 0.23780585419242056, "sheep_reproduce": 0.1819717727960506, "wolf_reproduce": 0.022410779959902996, "wolf_gain_from_food": 5, "sheep_gain_from_food": 13, "grass_regrowth_time": 8}
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.45637848590688707, "density_wolves": 0.4634464280522953, "sheep_reproduce": 0.34612294622886425, "wolf_reproduce": 0.03737631198824215, "wolf_gain_from_food": 11, "sheep_gain_from_food": 3, "grass_regrowth_time": 2}best eval: 6 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.44799662789646044, "density_wolves": 0.4368609251147848, "sheep_reproduce": 0.15845089027292092, "wolf_reproduce": 0.027341269802658875, "wolf_gain_from_food": 9, "sheep_gain_from_food": 6, "grass_regrowth_time": 1}best eval: 16 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4825640583386671, "density_wolves": 0.4091875535707968, "sheep_reproduce": 0.2513584030709088, "wolf_reproduce": 0.03851204829355144, "wolf_gain_from_food": 0, "sheep_gain_from_food": 5, "grass_regrowth_time": 6}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4204289278027965, "density_wolves": 0.47330083748962004, "sheep_reproduce": 0.18196547518201375, "wolf_reproduce": 0.0029962977020755125, "wolf_gain_from_food": 0, "sheep_gain_from_food": 7, "grass_regrowth_time": 12}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4397739518569589, "density_wolves": 0.4628346111666207, "sheep_reproduce": 0.2719935235307108, "wolf_reproduce": 0.09272669493215108, "wolf_gain_from_food": 11, "sheep_gain_from_food": 6, "grass_regrowth_time": 8}best eval: 3 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4755902321930121, "density_wolves": 0.4445089668627015, "sheep_reproduce": 0.2207249583553913, "wolf_reproduce": 0.04677638025479161, "wolf_gain_from_food": 7, "sheep_gain_from_food": 8, "grass_regrowth_time": 13}best eval: 14 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.40740572626991745, "density_wolves": 0.4579196892096472, "sheep_reproduce": 0.26407730357957065, "wolf_reproduce": 0.05255746083446355, "wolf_gain_from_food": 10, "sheep_gain_from_food": 9, "grass_regrowth_time": 5}best eval: 5 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4022817337893618, "density_wolves": 0.4593259010396051, "sheep_reproduce": 0.3024925635713256, "wolf_reproduce": 0.036892530268477684, "wolf_gain_from_food": 0, "sheep_gain_from_food": 4, "grass_regrowth_time": 12}best eval: -1 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4156117874284111, "density_wolves": 0.44198714397888933, "sheep_reproduce": 0.26883536639526695, "wolf_reproduce": 0.06731405956086998, "wolf_gain_from_food": 0, "sheep_gain_from_food": 3, "grass_regrowth_time": 14}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.47412827476091507, "density_wolves": 0.42555749526523456, "sheep_reproduce": 0.2406748814771275, "wolf_reproduce": 0.04531780496417226, "wolf_gain_from_food": 8, "sheep_gain_from_food": 1, "grass_regrowth_time": 3}best eval: 3 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4764339765038748, "density_wolves": 0.4921423443510751, "sheep_reproduce": 0.3200524449320186, "wolf_reproduce": 0.06705218672020928, "wolf_gain_from_food": 6, "sheep_gain_from_food": 3, "grass_regrowth_time": 7}best eval: 53 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.40218933867762413, "density_wolves": 0.4000513729791013, "sheep_reproduce": 0.21326418225110325, "wolf_reproduce": 0.08982814053624291, "wolf_gain_from_food": 8, "sheep_gain_from_food": 0, "grass_regrowth_time": 5}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.49227918294607675, "density_wolves": 0.48377266696711657, "sheep_reproduce": 0.33519740003623183, "wolf_reproduce": 0.030358707708248514, "wolf_gain_from_food": 3, "sheep_gain_from_food": 0, "grass_regrowth_time": 13}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.44893149582337255, "density_wolves": 0.4574115257004886, "sheep_reproduce": 0.25494677157123424, "wolf_reproduce": 0.07020313761188889, "wolf_gain_from_food": 0, "sheep_gain_from_food": 5, "grass_regrowth_time": 3}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.420998014245229, "density_wolves": 0.40530377788619776, "sheep_reproduce": 0.30954990108891495, "wolf_reproduce": 0.09183423039582916, "wolf_gain_from_food": 6, "sheep_gain_from_food": 7, "grass_regrowth_time": 13}best eval: 10 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4780149674735119, "density_wolves": 0.4258910032399209, "sheep_reproduce": 0.33178450314054375, "wolf_reproduce": 0.019953770998090294, "wolf_gain_from_food": 5, "sheep_gain_from_food": 4, "grass_regrowth_time": 10}best eval: 48 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.42211947282055706, "density_wolves": 0.48248626274367246, "sheep_reproduce": 0.18412346199900706, "wolf_reproduce": 0.07753066765661847, "wolf_gain_from_food": 0, "sheep_gain_from_food": 10, "grass_regrowth_time": 12}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.49788313688359065, "density_wolves": 0.4063885431095051, "sheep_reproduce": 0.18565609920618467, "wolf_reproduce": 0.0980501258609493, "wolf_gain_from_food": 9, "sheep_gain_from_food": 4, "grass_regrowth_time": 11}best eval: 19 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4919903191439492, "density_wolves": 0.4296635995947681, "sheep_reproduce": 0.16099404705260265, "wolf_reproduce": 0.046305317348024594, "wolf_gain_from_food": 7, "sheep_gain_from_food": 1, "grass_regrowth_time": 10}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4243125446378453, "density_wolves": 0.42536470311923996, "sheep_reproduce": 0.3168212278028121, "wolf_reproduce": 0.002780081440419924, "wolf_gain_from_food": 9, "sheep_gain_from_food": 9, "grass_regrowth_time": 4}best eval: 26 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.48806246958767213, "density_wolves": 0.4828678298531477, "sheep_reproduce": 0.2909404056029258, "wolf_reproduce": 0.0024712390508341733, "wolf_gain_from_food": 9, "sheep_gain_from_food": 7, "grass_regrowth_time": 10}best eval: 21 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.434271999183278, "density_wolves": 0.40495610656952735, "sheep_reproduce": 0.31370968900075125, "wolf_reproduce": 0.028573379883988417, "wolf_gain_from_food": 13, "sheep_gain_from_food": 7, "grass_regrowth_time": 8}best eval: 7 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.48981993107313326, "density_wolves": 0.4014916799394963, "sheep_reproduce": 0.16418753177554646, "wolf_reproduce": 0.05729770688725908, "wolf_gain_from_food": 13, "sheep_gain_from_food": 1, "grass_regrowth_time": 11}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.47570301910195867, "density_wolves": 0.41853914927155056, "sheep_reproduce": 0.3075117724551336, "wolf_reproduce": 0.09042315751226623, "wolf_gain_from_food": 8, "sheep_gain_from_food": 6, "grass_regrowth_time": 10}best eval: 12 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.46023410509588486, "density_wolves": 0.43204874708882746, "sheep_reproduce": 0.20996352716143413, "wolf_reproduce": 0.08385569734623434, "wolf_gain_from_food": 4, "sheep_gain_from_food": 1, "grass_regrowth_time": 6}best eval: 2 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.49987853738718985, "density_wolves": 0.41630593984349706, "sheep_reproduce": 0.29283551358098686, "wolf_reproduce": 0.061768992488600606, "wolf_gain_from_food": 9, "sheep_gain_from_food": 6, "grass_regrowth_time": 5}best eval: 10 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.47260177123419417, "density_wolves": 0.49455023761224526, "sheep_reproduce": 0.22258927197312117, "wolf_reproduce": 0.04755222662978801, "wolf_gain_from_food": 15, "sheep_gain_from_food": 2, "grass_regrowth_time": 6}best eval: 6 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.42950109472702663, "density_wolves": 0.45604431628644077, "sheep_reproduce": 0.23129448608587866, "wolf_reproduce": 0.0434192075324393, "wolf_gain_from_food": 6, "sheep_gain_from_food": 0, "grass_regrowth_time": 15}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.43530337437843536, "density_wolves": 0.42924183493911594, "sheep_reproduce": 0.3298902952294788, "wolf_reproduce": 0.044970854484437044, "wolf_gain_from_food": 8, "sheep_gain_from_food": 5, "grass_regrowth_time": 10}best eval: 8 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4889710956739939, "density_wolves": 0.40975339238317293, "sheep_reproduce": 0.1588535787984886, "wolf_reproduce": 0.08664603672522399, "wolf_gain_from_food": 11, "sheep_gain_from_food": 3, "grass_regrowth_time": 11}best eval: 6 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4405488464476144, "density_wolves": 0.4530162961282129, "sheep_reproduce": 0.16268358697834015, "wolf_reproduce": 0.018958637414908854, "wolf_gain_from_food": 3, "sheep_gain_from_food": 8, "grass_regrowth_time": 3}best eval: 24 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.48777313491304913, "density_wolves": 0.41357376219446046, "sheep_reproduce": 0.3291409193491928, "wolf_reproduce": 0.020800408774339186, "wolf_gain_from_food": 0, "sheep_gain_from_food": 1, "grass_regrowth_time": 14}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.438483221043044, "density_wolves": 0.48735299322685477, "sheep_reproduce": 0.20383329903161318, "wolf_reproduce": 0.09889623291862513, "wolf_gain_from_food": 10, "sheep_gain_from_food": 10, "grass_regrowth_time": 12}best eval: 6 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.41238346271507575, "density_wolves": 0.4002979445964999, "sheep_reproduce": 0.27752857524510177, "wolf_reproduce": 0.06911873628682359, "wolf_gain_from_food": 13, "sheep_gain_from_food": 5, "grass_regrowth_time": 1}best eval: 4 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.46350743989805765, "density_wolves": 0.43466464279967876, "sheep_reproduce": 0.2668766344593128, "wolf_reproduce": 0.08209374519836338, "wolf_gain_from_food": 5, "sheep_gain_from_food": 7, "grass_regrowth_time": 8}best eval: 24 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.46116396646189856, "density_wolves": 0.43556220266470935, "sheep_reproduce": 0.19631061243305853, "wolf_reproduce": 0.09801185133290302, "wolf_gain_from_food": 2, "sheep_gain_from_food": 3, "grass_regrowth_time": 8}best eval: 2 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4758390363666164, "density_wolves": 0.46987873493557186, "sheep_reproduce": 0.3089135264362211, "wolf_reproduce": 0.07505759300769467, "wolf_gain_from_food": 5, "sheep_gain_from_food": 4, "grass_regrowth_time": 5}best eval: 12 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4165480071004295, "density_wolves": 0.48949351182375533, "sheep_reproduce": 0.19223025022937335, "wolf_reproduce": 0.03366580504968845, "wolf_gain_from_food": 9, "sheep_gain_from_food": 4, "grass_regrowth_time": 7}best eval: 42 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4410577842103096, "density_wolves": 0.4411675466010712, "sheep_reproduce": 0.1628642065118356, "wolf_reproduce": 0.03534145894972294, "wolf_gain_from_food": 7, "sheep_gain_from_food": 4, "grass_regrowth_time": 14}best eval: 36 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4724310245274439, "density_wolves": 0.41304395216080325, "sheep_reproduce": 0.2109180735858674, "wolf_reproduce": 0.059820102278110944, "wolf_gain_from_food": 15, "sheep_gain_from_food": 2, "grass_regrowth_time": 7}best eval: 8 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4468110534397587, "density_wolves": 0.4904219322634304, "sheep_reproduce": 0.22078303732369553, "wolf_reproduce": 0.05246718227157815, "wolf_gain_from_food": 3, "sheep_gain_from_food": 4, "grass_regrowth_time": 7}best eval: 56 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4832240400957357, "density_wolves": 0.4736738234201477, "sheep_reproduce": 0.25844080584285656, "wolf_reproduce": 0.07178978007058452, "wolf_gain_from_food": 13, "sheep_gain_from_food": 2, "grass_regrowth_time": 12}best eval: 2 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4727340010114852, "density_wolves": 0.4068810656325892, "sheep_reproduce": 0.3229395401247893, "wolf_reproduce": 0.053010386634938136, "wolf_gain_from_food": 0, "sheep_gain_from_food": 6, "grass_regrowth_time": 13}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4296797094572247, "density_wolves": 0.4625806805371231, "sheep_reproduce": 0.3110911663697423, "wolf_reproduce": 0.048443808319267895, "wolf_gain_from_food": 14, "sheep_gain_from_food": 1, "grass_regrowth_time": 3}best eval: 8 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4331617187049013, "density_wolves": 0.42373807696120147, "sheep_reproduce": 0.276323691830362, "wolf_reproduce": 0.07160338031227541, "wolf_gain_from_food": 0, "sheep_gain_from_food": 2, "grass_regrowth_time": 14}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4456716276171325, "density_wolves": 0.43238696116190256, "sheep_reproduce": 0.1698080988698746, "wolf_reproduce": 0.04606913860022288, "wolf_gain_from_food": 3, "sheep_gain_from_food": 6, "grass_regrowth_time": 10}best eval: 38 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.47130499546696436, "density_wolves": 0.4565741232221949, "sheep_reproduce": 0.21865616434134677, "wolf_reproduce": 0.060647174835454155, "wolf_gain_from_food": 8, "sheep_gain_from_food": 3, "grass_regrowth_time": 8}best eval: 40 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4996607605058391, "density_wolves": 0.49796432405300584, "sheep_reproduce": 0.23961435284651056, "wolf_reproduce": 0.005035605991092665, "wolf_gain_from_food": 4, "sheep_gain_from_food": 9, "grass_regrowth_time": 1}best eval: 38 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.40302371571476403, "density_wolves": 0.49544499216036797, "sheep_reproduce": 0.1952656146510636, "wolf_reproduce": 0.09609798997950789, "wolf_gain_from_food": 10, "sheep_gain_from_food": 8, "grass_regrowth_time": 5}best eval: 8 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4027547047681875, "density_wolves": 0.4800438420360227, "sheep_reproduce": 0.19417775534202333, "wolf_reproduce": 0.02431186957638351, "wolf_gain_from_food": 5, "sheep_gain_from_food": 5, "grass_regrowth_time": 6}best eval: 34 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.42002990569793, "density_wolves": 0.479521882461447, "sheep_reproduce": 0.23460051043095076, "wolf_reproduce": 0.0196871964893824, "wolf_gain_from_food": 10, "sheep_gain_from_food": 0, "grass_regrowth_time": 9}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4175196965092196, "density_wolves": 0.48886030374360845, "sheep_reproduce": 0.285901726717803, "wolf_reproduce": 0.032462804143066175, "wolf_gain_from_food": 11, "sheep_gain_from_food": 7, "grass_regrowth_time": 4}best eval: 18 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.45595664507386213, "density_wolves": 0.4673727619331421, "sheep_reproduce": 0.1785451636183438, "wolf_reproduce": 0.0019020611243193083, "wolf_gain_from_food": 7, "sheep_gain_from_food": 4, "grass_regrowth_time": 11}best eval: 58 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4515713027539282, "density_wolves": 0.4647583658804681, "sheep_reproduce": 0.15098467474400243, "wolf_reproduce": 0.00816347461575053, "wolf_gain_from_food": 6, "sheep_gain_from_food": 10, "grass_regrowth_time": 11}best eval: 42 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.45602630627715196, "density_wolves": 0.4484945353832495, "sheep_reproduce": 0.17651791262494437, "wolf_reproduce": 0.08622164248577555, "wolf_gain_from_food": 2, "sheep_gain_from_food": 4, "grass_regrowth_time": 10}best eval: 46 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.46026083122066364, "density_wolves": 0.47281759118216876, "sheep_reproduce": 0.22105380973574276, "wolf_reproduce": 0.0002123441507139029, "wolf_gain_from_food": 2, "sheep_gain_from_food": 5, "grass_regrowth_time": 3}best eval: 62 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.46139599707209794, "density_wolves": 0.47017685301207846, "sheep_reproduce": 0.2622885369431307, "wolf_reproduce": 0.00145477492447972, "wolf_gain_from_food": 1, "sheep_gain_from_food": 6, "grass_regrowth_time": 0}best eval: 54 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.48740390319506066, "density_wolves": 0.4514835573159142, "sheep_reproduce": 0.3488913780724582, "wolf_reproduce": 0.0148083086989502, "wolf_gain_from_food": 6, "sheep_gain_from_food": 7, "grass_regrowth_time": 2}best eval: 14 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4618474039260441, "density_wolves": 0.4809129324481663, "sheep_reproduce": 0.21810939281150643, "wolf_reproduce": 0.017047631077968223, "wolf_gain_from_food": 3, "sheep_gain_from_food": 5, "grass_regrowth_time": 5}best eval: 46 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.443321057717688, "density_wolves": 0.47028872459606297, "sheep_reproduce": 0.2389457214899401, "wolf_reproduce": 0.01107115290016216, "wolf_gain_from_food": 4, "sheep_gain_from_food": 3, "grass_regrowth_time": 3}best eval: 48 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4626118145268868, "density_wolves": 0.48711652774164954, "sheep_reproduce": 0.20692220406543022, "wolf_reproduce": 0.028375398014326227, "wolf_gain_from_food": 3, "sheep_gain_from_food": 5, "grass_regrowth_time": 15}best eval: 60 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4638718099152998, "density_wolves": 0.4810050204863231, "sheep_reproduce": 0.18014143412538747, "wolf_reproduce": 0.0016096204087953142, "wolf_gain_from_food": 1, "sheep_gain_from_food": 5, "grass_regrowth_time": 15}best eval: 2 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4568139659990491, "density_wolves": 0.45823412824638765, "sheep_reproduce": 0.2051824145722191, "wolf_reproduce": 0.024677475598147827, "wolf_gain_from_food": 5, "sheep_gain_from_food": 7, "grass_regrowth_time": 12}best eval: 48 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.4853680669522553, "density_wolves": 0.4740429381182797, "sheep_reproduce": 0.18607093045761736, "wolf_reproduce": 0.040806290221304616, "wolf_gain_from_food": 2, "sheep_gain_from_food": 3, "grass_regrowth_time": 13}best eval: 2 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.46788207890103106, "density_wolves": 0.44249381113635544, "sheep_reproduce": 0.15221527034862076, "wolf_reproduce": 0.024121954369004328, "wolf_gain_from_food": 7, "sheep_gain_from_food": 6, "grass_regrowth_time": 15}best eval: 38 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.47875071278465375, "density_wolves": 0.46283475946998726, "sheep_reproduce": 0.20470102262714845, "wolf_reproduce": 0.011913807392212076, "wolf_gain_from_food": 2, "sheep_gain_from_food": 5, "grass_regrowth_time": 9}best eval: 62 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4816044061530264, "density_wolves": 0.48663159732933137, "sheep_reproduce": 0.2040423555074183, "wolf_reproduce": 0.03019208369055435, "wolf_gain_from_food": 1, "sheep_gain_from_food": 8, "grass_regrowth_time": 8}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4942314164310485, "density_wolves": 0.45757680382548876, "sheep_reproduce": 0.22689196821372845, "wolf_reproduce": 0.010800486147736894, "wolf_gain_from_food": 2, "sheep_gain_from_food": 5, "grass_regrowth_time": 6}best eval: 58 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4980545755199804, "density_wolves": 0.45697428548506924, "sheep_reproduce": 0.23129051332264777, "wolf_reproduce": 0.011536486095943693, "wolf_gain_from_food": 2, "sheep_gain_from_food": 5, "grass_regrowth_time": 6}best eval: 60 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.47807286520067066, "density_wolves": 0.44928713171857526, "sheep_reproduce": 0.24810586481267471, "wolf_reproduce": 0.014598531112853788, "wolf_gain_from_food": 4, "sheep_gain_from_food": 5, "grass_regrowth_time": 5}best eval: 46 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.49696095864804324, "density_wolves": 0.4394806997225817, "sheep_reproduce": 0.234376991338686, "wolf_reproduce": 0.010919815439266222, "wolf_gain_from_food": 0, "sheep_gain_from_food": 4, "grass_regrowth_time": 6}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.49038428527177125, "density_wolves": 0.4601803689005737, "sheep_reproduce": 0.2023143342916123, "wolf_reproduce": 0.019263290436700903, "wolf_gain_from_food": 2, "sheep_gain_from_food": 6, "grass_regrowth_time": 3}best eval: 28 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4771685158191664, "density_wolves": 0.4860975963469837, "sheep_reproduce": 0.21323402927820126, "wolf_reproduce": 0.03968697013753789, "wolf_gain_from_food": 3, "sheep_gain_from_food": 3, "grass_regrowth_time": 9}best eval: 54 
+
+{"width": 20, "height": 20, "grass": true, "moore": true, "density_sheep": 0.49148042109378387, "density_wolves": 0.4532213243069809, "sheep_reproduce": 0.2557670033139284, "wolf_reproduce": 0.0282655637297268, "wolf_gain_from_food": 5, "sheep_gain_from_food": 5, "grass_regrowth_time": 1}best eval: 14 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4366352536324279, "density_wolves": 0.47506060023863245, "sheep_reproduce": 0.27267900825893027, "wolf_reproduce": 0.006407194762288682, "wolf_gain_from_food": 1, "sheep_gain_from_food": 4, "grass_regrowth_time": 7}best eval: 0 
+
+{"width": 20, "height": 20, "grass": true, "moore": false, "density_sheep": 0.4947871676193182, "density_wolves": 0.4348830015555604, "sheep_reproduce": 0.2240304374219469, "wolf_reproduce": 0.035782251364317355, "wolf_gain_from_food": 0, "sheep_gain_from_food": 7, "grass_regrowth_time": 6}best eval: 0 
+
