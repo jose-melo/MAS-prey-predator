@@ -1,0 +1,1 @@
+{"width": 80, "height": 80, "grass": true, "density_sheep": 0.061322476160929895, "density_wolves": 0.23780585419242056, "sheep_reproduce": 0.1819717727960506, "wolf_reproduce": 0.022410779959902996, "wolf_gain_from_food": 5, "sheep_gain_from_food": 13, "grass_regrowth_time": 8}
